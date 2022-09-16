@@ -21,6 +21,6 @@ resource "aws_route_table" "route_tables"{
   for_each         = local.route_table_config
   vpc_id           = each.value.vpc_id
   propagating_vgws = each.value.propagating_vgws
-  tags             = merge({"Name" = item.name},each.value.tags)
+  tags             = merge({"Name" = each.key},each.value.tags)
 }
 
